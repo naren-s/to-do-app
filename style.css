@@ -1,0 +1,86 @@
+/* Apply Montserrat font globally */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1100px;
+}
+
+.task-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.task-card {
+    width: 17rem;
+    border-left: 5px solid #17a2b8;
+    transition: border-left-color 0.3s ease-in-out;
+}
+
+.in-progress {
+    border-left-color: #ffc107;
+}
+
+.completed {
+    border-left-color: #28a745;
+}
+
+.progress-color {
+    height: 5px;
+    background-color: #ffc107;
+    transition: width 1s linear;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Custom Toast Styles */
+.toast {
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bounce-in-right 0.5s forwards;
+    opacity: 0;
+    transform: translateX(100%); /* Start offscreen */
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0); /* Move into view */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.toast.hide {
+    animation: bounce-out-left 0.5s forwards; /* Animation for exit */
+}
+
+/* Keyframes for bounce animation */
+@keyframes bounce-in-right {
+    0% { transform: translateX(100%); opacity: 0; }
+    60% { transform: translateX(-10%); opacity: 1; }
+    80% { transform: translateX(5%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes bounce-out-left {
+    0% { transform: translateX(0); opacity: 1; }
+    20% { transform: translateX(-10%); }
+    40% { transform: translateX(10%); }
+    60% { transform: translateX(-5%); }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+.toast-header {
+    background-color: #28a745 !important; /* Use green for success */
+    color: white !important;
+}
+
+.toast-body {
+    background-color: #f0f9e9 !important; /* Light green background for body */
+    color: #2d6a4f !important; /* Darker green for text */
+}
